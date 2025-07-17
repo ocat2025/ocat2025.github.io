@@ -2,10 +2,10 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
+  apiKey: "AIzaSyAXMKz2udLxlC_d3uuv9weFZi5Ja36KX5M",
   authDomain: "YOUR_PROJECT.firebaseapp.com",
   projectId: "YOUR_PROJECT_ID",
-  appId: "YOUR_APP_ID"
+  appId: "1:850492800142:web:47d519af1b4fbde5d85ddf"
 };
 
 const app = initializeApp(firebaseConfig);
