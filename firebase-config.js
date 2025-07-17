@@ -4,7 +4,7 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-aut
 const firebaseConfig = {
   apiKey: "AIzaSyAXMKz2udLxlC_d3uuv9weFZi5Ja36KX5M",
   authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
+  projectId: "env-api-password",
   appId: "1:850492800142:web:47d519af1b4fbde5d85ddf"
 };
 
