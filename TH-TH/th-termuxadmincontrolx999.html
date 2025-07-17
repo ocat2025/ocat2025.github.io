@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Termux Control</title>
+  <link rel="stylesheet" href="../style.css">
+  <script type="module" src="../firebase-config.js"></script>
+</head>
+<body>
+  <h1>📟 Termux Admin Control</h1>
+  <textarea id="terminal" placeholder="พิมพ์คำสั่งที่นี่..." rows="6" style="width:90%;max-width:600px;"></textarea><br>
+  <button onclick="runCommand()">รันคำสั่ง</button>
+  <pre id="output"></pre>
+
+  <script type="module">
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { auth } from "../firebase-config.js";
+
+    const output = document.getElementById("output");
+
+    onAuthStateChanged(auth, user => {
+      if (!user || user.email !== "owner@ocat.io") {
+        window.location.href = "login.html";
+      }
+    });
+
+    window.runCommand = () => {
+      const cmd = document.getElementById("terminal").value.trim().toLowerCase();
+      output.textContent = "รันคำสั่ง: " + cmd + "\n\n";
+
+      switch (cmd) {
+        case "clear shop":
+          output.textContent += "ล้างร้านค้าเรียบร้อยแล้ว ✅";
+          break;
+        case "delete all users":
+          output.textContent += "ลบผู้ใช้ทั้งหมด (โหมดจำลอง) ❌";
+          break;
+        default:
+          output.textContent += "ไม่รู้จักคำสั่งนี้ ⚠️";
+      }
+    };
+  </script>
+</body>
+</html>

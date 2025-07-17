@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="../style.css">
+  <script type="module" src="../firebase-config.js"></script>
+</head>
+<body>
+  <h1>เข้าสู่ระบบ</h1>
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="login()">เข้าสู่ระบบ</button>
+  <p id="error-msg"></p>
+  <script type="module">
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { auth } from "../firebase-config.js";
+
+    window.login = async function () {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const errorMsg = document.getElementById("error-msg");
+      errorMsg.textContent = "";
+
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        if (user.email.endsWith("@ocat.io")) {
+          window.location.href = "th-admindjdjhsisjdhuw818e.html";
+        } else {
+          window.location.href = "th-rmrfaixnrq92.html";
+        }
+      } catch (error) {
+        errorMsg.textContent = "Firebase ERROR: " + error.message;
+      }
+    };
+  </script>
+</body>
+</html>
